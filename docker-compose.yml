@@ -2,7 +2,7 @@ services:
 
     db:
       image: postgres:18.1
-      container_name: db-companies
+      container_name: db-relatospapel
       restart: always
       volumes:
         - ./sql/create_schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
@@ -10,6 +10,6 @@ services:
       environment:
         POSTGRES_DB: 'dbrelatospapel'
         POSTGRES_USER: 'usrrelatospapel'
-        POSTGRES_PASSWORD: 'Abc123...'
+        POSTGRES_PASSWORD: 'Abc123relatos'
       ports:
-        - '5432:5432'
+        - '5433:5432'
