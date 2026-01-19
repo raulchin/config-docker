@@ -1,0 +1,15 @@
+services:
+
+    db:
+      image: postgres:18.1
+      container_name: db-companies
+      restart: always
+      volumes:
+        - ./sql/create_schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
+        - ./sql/data.sql:/docker-entrypoint-initdb.d/data.sql
+      environment:
+        POSTGRES_DB: 'dbrelatospapel'
+        POSTGRES_USER: 'usrrelatospapel'
+        POSTGRES_PASSWORD: 'Abc123...'
+      ports:
+        - '5432:5432'
