@@ -13,3 +13,18 @@ services:
         POSTGRES_PASSWORD: 'Abc123relatos'
       ports:
         - '5433:5432'
+    mysql:
+      image: mysql:9.5
+      container_name: mysql-relatospapel
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: 'Abc123relatosmysql'
+        MYSQL_DATABASE: 'dbrelatospapelmysql'
+        MYSQL_USER: 'usrrelatospapelmysql'
+        MYSQL_PASSWORD: 'Abc123relatos'
+        TZ: 'America/Guayaquil'
+      ports:
+        - '3307:3306'
+      volumes:
+        - ./sql/create_schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
+      
